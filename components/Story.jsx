@@ -13,8 +13,8 @@ export const Story = ({ storyId }) => {
       <a href={story.url} target="_blank" rel="noopener noreferrer">
         <p>{story.title}</p>
       </a>
-      By: <p>{story.by}</p>
-      Posted: <p>{story.time}</p>
+      <p>By: {story.by}</p>
+      <p>Posted: {story.time}</p>
     </>
   ) : null;
 };
