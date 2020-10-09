@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { StoriesContainer } from '../containers/StoriesContainer';
 import styles from '../styles/Home.module.css';
-import { getStoryIds } from '../services/api';
 
 export default function Home() {
-  const [storyIds, setStoryIds] = useState([]);
-
-  useEffect(() => {
-    getStoryIds().then((data) => setStoryIds(data));
-  }, []);
-
-  console.log(storyIds);
-
   return (
     <div className={styles.container}>
       <Head>
         <title>Hacker News Next</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <StoriesContainer />
 
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to Hacker News Next!</h1>
