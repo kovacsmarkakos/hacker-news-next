@@ -6,7 +6,7 @@ export default function NewStories({ result }) {
   return result.map((id) => <Story key={id} storyId={id} />);
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const result = await axios.get(newStoriesUrl).then(({ data }) => data);
 
   return {
