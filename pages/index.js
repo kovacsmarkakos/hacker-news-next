@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { StoriesContainer } from './StoriesContainer';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -9,8 +8,6 @@ export default function Home() {
         <title>Hacker News Next</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <StoriesContainer />
 
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to Hacker News Next!</h1>

@@ -8,11 +8,11 @@ export const newStoriesUrl = `${baseUrl}newstories.json`;
 export const showStoriesUrl = `${baseUrl}showstories.json`;
 export const askStoriesUrl = `${baseUrl}askstories.json`; */
 
-export const getStoryIds = async () => {
+/* export const getStoryIds = async () => {
   const result = await axios.get(newStoriesUrl).then(({ data }) => data);
 
   return result;
-};
+}; */
 
 export const getStory = async (storyId) => {
   const result = await axios
