@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { StoriesContainer } from '../containers/StoriesContainer';
+import { StoriesContainer } from './StoriesContainer';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
