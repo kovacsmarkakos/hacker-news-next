@@ -1,0 +1,34 @@
+.storyWrapper {
+  padding-top: 10px;
+  margin-bottom: 20px;
+  border-top: 1px solid #cccccc;
+  &:first-of-type {
+    border-top: 0;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.storyTitle {
+  color: #34495f;
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 0;
+  text-decoration: none;
+}
+
+.storyMeta {
+  font-size: 13px;
+  color: #888;
+  span:first-child {
+    margin-right: 2px;
+  }
+  span:not(:first-child):before {
+    font-style: normal;
+    content: '•';
+    margin: 0 7px;
+  }
+}

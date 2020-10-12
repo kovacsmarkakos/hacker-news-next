@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getStory } from '../services/api';
+import styles from './Story.module.scss';
 
 export const Story = ({ storyId }) => {
   const [story, setStory] = useState({});
@@ -9,12 +10,14 @@ export const Story = ({ storyId }) => {
   }, []);
 
   return story && story.url ? (
-    <>
+    <section className={styles.storyWrapper}>
       <a href={story.url} target="_blank" rel="noopener noreferrer">
-        <p>{story.title}</p>
+        <h1 className={styles.storyTitle}>{story.title}</h1>
       </a>
-      <p>By: {story.by}</p>
-      <p>Posted: {story.time}</p>
-    </>
+      <div className={styles.storyMeta}>
+        <span>By: {story.by}</span>
+        <span>Posted: {story.time}</span>
+      </div>
+    </section>
   ) : null;
 };
