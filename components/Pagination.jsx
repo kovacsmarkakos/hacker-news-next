@@ -8,7 +8,7 @@ const Pagination = ({ storiesPerPage, totalStories, paginate }) => {
   }
 
   return (
-    <div className={(styles.container, styles.large)}>
+    <div className={styles.container}>
       <div className={styles.pagination}>
         <ul className={styles.pageList}>
           {pageNumbers.map((number) => (
