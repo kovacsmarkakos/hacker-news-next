@@ -1,4 +1,4 @@
-import styles from './Pagination.module.scss';
+import styles from './Pagination.module.css';
 
 const Pagination = ({ storiesPerPage, totalStories, paginate }) => {
   const pageNumbers = [];
@@ -8,22 +8,10 @@ const Pagination = ({ storiesPerPage, totalStories, paginate }) => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.pagination}>
-        <ul className={styles.pageList}>
-          {pageNumbers.map((number) => (
-            <li key={number} className={styles.pageItem}>
-              <a
-                onClick={() => paginate(number)}
-                href="#"
-                className={styles.pageLink}
-              >
-                {number}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className={styles.newsListNav}>
+      <a className={styles.disabled}>&lt; prev</a>
+      <span>1/25</span>
+      <a href="/new/2">more &gt;</a>
     </div>
   );
 };

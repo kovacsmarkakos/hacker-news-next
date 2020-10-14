@@ -1,7 +1,30 @@
+.header {
+  background-color: #212121;
+  position: fixed;
+  z-index: 999;
+  height: 55px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .nav {
-  padding-bottom: 2rem;
+  max-width: 800px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 15px 30px;
   a {
-    margin-right: 1.5rem;
-    padding: 0.3rem;
+    color: hsla(0, 0%, 100%, 0.8);
+    line-height: 24px;
+    transition: color 0.2s ease;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+    letter-spacing: 0.075em;
+    margin-right: 1.8em;
+
+    &:hover {
+      color: #fff;
+    }
   }
 }
