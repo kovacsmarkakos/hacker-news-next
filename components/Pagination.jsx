@@ -17,7 +17,9 @@ const Pagination = ({ storiesPerPage, totalStories, paginate }) => {
                 onClick={() => paginate(number)}
                 href="#"
                 className={styles.pageLink}
-              ></a>
+              >
+                {number}
+              </a>
             </li>
           ))}
         </ul>

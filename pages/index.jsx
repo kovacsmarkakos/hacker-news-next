@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
+import Nav from '../components/Nav';
 
 export default function Home() {
   return (
@@ -11,10 +12,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to Hacker News Next!</h1>
-        <Link href="/newstories">
-          <a>Newstories</a>
-        </Link>
+        <Nav />
       </main>
 
       <footer className={styles.footer}>

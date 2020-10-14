@@ -12,7 +12,7 @@ $secondary-color: #1d1f20;
 }
 
 .container {
-  @extend .large;
+  @extend .xsmall;
   background: lighten($main-color, 5%);
   padding: 1rem;
   margin: 3rem auto;

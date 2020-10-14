@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Story } from '../components/Story';
 import { newStoriesUrl } from '../services/api.js';
-import Link from 'next/link';
 import styles from '../styles/newstories.module.scss';
 import Pagination from '../components/Pagination';
+import Nav from '../components/Nav';
 
-export default function NewStories({ result }) {
+export default function New({ result }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [storiesPerPage, setStoriesPerPage] = useState(20);
 
@@ -19,11 +19,7 @@ export default function NewStories({ result }) {
 
   return (
     <main className={styles.storiesContainerWrapper}>
-      <nav className={styles.nav}>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </nav>
+      <Nav />
       <Pagination
         storiesPerPage={storiesPerPage}
         totalStories={result.length}
