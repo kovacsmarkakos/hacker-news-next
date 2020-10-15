@@ -5,8 +5,8 @@ const Nav = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <Link href="/">
-          <a>Home</a>
+        <Link href="/top">
+          <a>HNN</a>
         </Link>
         <Link href="/top">
           <a>Top</a>

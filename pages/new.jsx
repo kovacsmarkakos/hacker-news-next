@@ -14,16 +14,14 @@ export default function New({ result }) {
   const indexOfLastStory = currentPage * storiesPerPage;
   const indexOfFirstStory = indexOfLastStory - storiesPerPage;
 
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   return (
     <main className={styles.storiesContainerWrapper}>
       <Nav />
       <Pagination
         storiesPerPage={storiesPerPage}
         totalStories={result.length}
-        paginate={paginate}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
       {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
         <Story key={id} storyId={id} />
