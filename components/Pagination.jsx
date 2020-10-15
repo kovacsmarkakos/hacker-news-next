@@ -1,6 +1,11 @@
-import styles from './Pagination.module.css';
+import styles from './Pagination.module.scss';
 
-const Pagination = ({ storiesPerPage, totalStories, paginate }) => {
+const Pagination = ({
+  storiesPerPage,
+  totalStories,
+  currentPage,
+  setCurrentPage,
+}) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalStories / storiesPerPage); i++) {
@@ -9,9 +14,27 @@ const Pagination = ({ storiesPerPage, totalStories, paginate }) => {
 
   return (
     <div className={styles.newsListNav}>
-      <a className={styles.disabled}>&lt; prev</a>
-      <span>1/25</span>
-      <a href="/new/2">more &gt;</a>
+      <a
+        onClick={() =>
+          setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage)
+        }
+        className={currentPage < 2 ? styles.disabled : ''}
+      >
+        &lt; prev
+      </a>
+      <span>
+        {currentPage}/{pageNumbers.length}
+      </span>
+      <a
+        onClick={() =>
+          setCurrentPage(
+            currentPage < pageNumbers.length ? currentPage + 1 : currentPage
+          )
+        }
+        className={currentPage === pageNumbers.length ? styles.disabled : ''}
+      >
+        more &gt;
+      </a>
     </div>
   );
 };

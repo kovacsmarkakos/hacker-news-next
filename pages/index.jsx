@@ -15,9 +15,6 @@ export default function Home({ result }) {
   const indexOfLastStory = currentPage * storiesPerPage;
   const indexOfFirstStory = indexOfLastStory - storiesPerPage;
 
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   return (
     <>
       <Head>
@@ -29,7 +26,8 @@ export default function Home({ result }) {
         <Pagination
           storiesPerPage={storiesPerPage}
           totalStories={result.length}
-          paginate={paginate}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
         {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
           <Story key={id} storyId={id} />
