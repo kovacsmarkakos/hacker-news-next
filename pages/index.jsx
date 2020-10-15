@@ -1,30 +1,48 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import Link from 'next/link';
+import axios from 'axios';
+import { Story } from '../components/Story';
+import { topStoriesUrl } from '../services/api.js';
+import styles from '../styles/pagestyles.module.scss';
+import Pagination from '../components/Pagination';
 import Nav from '../components/Nav';
 
-export default function Home() {
+export default function Home({ result }) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [storiesPerPage, setStoriesPerPage] = useState(20);
+
+  // Get current posts
+  const indexOfLastStory = currentPage * storiesPerPage;
+  const indexOfFirstStory = indexOfLastStory - storiesPerPage;
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Hacker News Next</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
+      <main className={styles.storiesContainerWrapper}>
         <Nav />
+        <Pagination
+          storiesPerPage={storiesPerPage}
+          totalStories={result.length}
+          paginate={paginate}
+        />
+        {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
+          <Story key={id} storyId={id} />
+        ))}
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    </>
   );
+}
+
+export async function getStaticProps() {
+  const result = await axios.get(topStoriesUrl).then(({ data }) => data);
+
+  return {
+    props: { result },
+  };
 }

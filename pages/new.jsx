@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Story } from '../components/Story';
 import { newStoriesUrl } from '../services/api.js';
-import styles from '../styles/newstories.module.scss';
+import styles from '../styles/pagestyles.module.scss';
 import Pagination from '../components/Pagination';
 import Nav from '../components/Nav';
 
