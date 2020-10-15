@@ -17,9 +17,6 @@ const Nav = () => {
         <Link href="/show">
           <a>Show</a>
         </Link>
-        <Link href="/ask">
-          <a>Ask</a>
-        </Link>
       </nav>
     </header>
   );

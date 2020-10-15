@@ -6,7 +6,6 @@ export const storyUrl = `${baseUrl}item/`;
 export const newStoriesUrl = `${baseUrl}newstories.json`;
 export const topStoriesUrl = `${baseUrl}topstories.json`;
 export const showStoriesUrl = `${baseUrl}showstories.json`;
-export const askStoriesUrl = `${baseUrl}askstories.json`;
 
 export const getStory = async (storyId) => {
   const result = await axios
