@@ -30,13 +30,12 @@ export default function Show({ result }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const result = await axios.get(showStoriesUrl).then(({ data }) => data);
 
   return {
     props: {
       result,
     },
-    revalidate: 5,
   };
 }

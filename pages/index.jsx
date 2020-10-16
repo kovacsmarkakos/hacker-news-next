@@ -37,13 +37,12 @@ export default function Home({ result }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const result = await axios.get(topStoriesUrl).then(({ data }) => data);
 
   return {
     props: {
       result,
     },
-    revalidate: 5,
   };
 }
