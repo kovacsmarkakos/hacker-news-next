@@ -30,7 +30,7 @@ export default function New({ result }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const result = await axios.get(newStoriesUrl).then(({ data }) => data);
 
   return {
