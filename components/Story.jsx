@@ -1,31 +1,23 @@
 import React, { useState, useEffect } from 'react';
-// import { getStory } from '../services/api';
+import { getStory } from '../services/api';
 import styles from './Story.module.scss';
 import mapTime from '../mappers/mapTime';
-import useSWR from 'swr';
-import axios from 'axios';
-import { selectFields } from '../utilities/selectFields';
-import { storyUrl } from '../services/api';
 
 export const Story = ({ storyId }) => {
-  /* const [story, setStory] = useState({}); */
-  const fetcher = (url) =>
-    axios.get(url).then(({ data }) => data && selectFields(data));
+  const [story, setStory] = useState({});
 
-  const { data } = useSWR(`${storyUrl + storyId}.json`, fetcher);
+  useEffect(() => {
+    getStory(storyId).then((data) => data && data.url && setStory(data));
+  }, [storyId]);
 
-  /* useEffect(() => {
-    (data) => data && data.url && setStory(data);
-  }, []); */
-
-  return data && data.url ? (
+  return story && story.url ? (
     <section className={styles.storyWrapper}>
-      <a href={data.url} target="_blank" rel="noopener noreferrer">
-        <h1 className={styles.storyTitle}>{data.title}</h1>
+      <a href={story.url} target="_blank" rel="noopener noreferrer">
+        <h1 className={styles.storyTitle}>{story.title}</h1>
       </a>
       <div className={styles.storyMeta}>
-        <span>By: {data.by}</span>
-        <span>Posted: {mapTime(data.time)}</span>
+        <span>By: {story.by}</span>
+        <span>Posted: {mapTime(story.time)}</span>
       </div>
     </section>
   ) : null;
