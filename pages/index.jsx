@@ -18,8 +18,7 @@ export default function Home({ result }) {
   return (
     <>
       <Head>
-        <title>Hacker News Next</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Hacker News Next | Top</title>
       </Head>
       <main className={styles.storiesContainerWrapper}>
         <Nav />

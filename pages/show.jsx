@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Head from 'next/head';
 import axios from 'axios';
 import { Story } from '../components/Story';
 import { showStoriesUrl } from '../services/api.js';
@@ -15,18 +16,23 @@ export default function Show({ result }) {
   const indexOfFirstStory = indexOfLastStory - storiesPerPage;
 
   return (
-    <main className={styles.storiesContainerWrapper}>
-      <Nav />
-      <Pagination
-        storiesPerPage={storiesPerPage}
-        totalStories={result.length}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
-      {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
-        <Story key={id} storyId={id} />
-      ))}
-    </main>
+    <>
+      <Head>
+        <title>Hacker News Next | Show</title>
+      </Head>
+      <main className={styles.storiesContainerWrapper}>
+        <Nav />
+        <Pagination
+          storiesPerPage={storiesPerPage}
+          totalStories={result.length}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+        {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
+          <Story key={id} storyId={id} />
+        ))}
+      </main>
+    </>
   );
 }
 
