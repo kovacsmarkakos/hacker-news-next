@@ -18,7 +18,7 @@ const Pagination = ({
         onClick={() =>
           setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage)
         }
-        className={currentPage < 2 ? styles.disabled : ''}
+        className={currentPage < 2 ? styles.disabled : styles.enabled}
       >
         &lt; prev
       </a>
@@ -31,9 +31,11 @@ const Pagination = ({
             currentPage < pageNumbers.length ? currentPage + 1 : currentPage
           )
         }
-        className={currentPage === pageNumbers.length ? styles.disabled : ''}
+        className={
+          currentPage === pageNumbers.length ? styles.disabled : styles.enabled
+        }
       >
-        more &gt;
+        next &gt;
       </a>
     </div>
   );
