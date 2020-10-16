@@ -1,9 +1,9 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getStory } from '../services/api';
 import styles from './Story.module.scss';
 import mapTime from '../mappers/mapTime';
 
-export const Story = memo(function Story({ storyId }) {
+export const Story = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -21,4 +21,4 @@ export const Story = memo(function Story({ storyId }) {
       </div>
     </section>
   ) : null;
-});
+};
