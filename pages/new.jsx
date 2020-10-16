@@ -30,10 +30,13 @@ export default function New({ result }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const result = await axios.get(newStoriesUrl).then(({ data }) => data);
 
   return {
-    props: { result },
+    props: {
+      result,
+    },
+    revalidate: 5,
   };
 }
