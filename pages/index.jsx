@@ -11,7 +11,6 @@ export default function Home({ result }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [storiesPerPage, setStoriesPerPage] = useState(20);
 
-  // Get current posts
   const indexOfLastStory = currentPage * storiesPerPage;
   const indexOfFirstStory = indexOfLastStory - storiesPerPage;
 
