@@ -10,7 +10,7 @@ export const showStoriesUrl = `${baseUrl}showstories.json`;
 export const getStory = async (storyId) => {
   const result = await axios
     .get(`${storyUrl + storyId}.json`)
-    .then(({ data }) => selectFields(data));
+    .then(({ data }) => data && selectFields(data));
 
   return result;
 };
