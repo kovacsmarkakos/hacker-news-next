@@ -7,7 +7,13 @@ export const Story = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
-    getStory(storyId).then((data) => data && data.url && setStory(data));
+    let mounted = true;
+    getStory(storyId).then((data) => {
+      if (mounted) {
+        data && data.url && setStory(data);
+      }
+    });
+    return () => (mounted = false);
   }, [storyId]);
 
   return story && story.url ? (
