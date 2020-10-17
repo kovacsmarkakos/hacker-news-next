@@ -1,10 +1,12 @@
 <h1 align="center">Hacker News Next</h1>
-<p>
+<p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
+
+> Hacker News Next is a news reader app, built with Next.js. Fetches data from the Hacker News API, with server-side rendering.
 
 ## Built with
 
