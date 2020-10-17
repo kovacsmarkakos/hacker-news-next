@@ -1,14 +1,5 @@
-export const selectFields = ({
+export const selectFields = ({ id, by, url, time, title, score } = {}) => ({
   id,
-  type,
-  by,
-  url,
-  time,
-  title,
-  score,
-} = {}) => ({
-  id,
-  type,
   by,
   url,
   time,
