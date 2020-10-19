@@ -3,8 +3,8 @@ import styles from './Nav.module.scss';
 
 const Nav = () => {
   return (
-    <header className={styles.header}>
-      <nav className={styles.nav}>
+    <nav className={styles.nav}>
+      <div className={styles.linkWrapper}>
         <Link href="/top">
           <a>HNN</a>
         </Link>
@@ -17,8 +17,8 @@ const Nav = () => {
         <Link href="/show">
           <a>Show</a>
         </Link>
-      </nav>
-    </header>
+      </div>
+    </nav>
   );
 };
 
