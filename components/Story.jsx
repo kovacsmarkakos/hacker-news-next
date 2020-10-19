@@ -18,14 +18,19 @@ export const Story = ({ storyId }) => {
 
   return story && story.url ? (
     <section className={styles.storyWrapper}>
-      <h1 className={styles.storyTitle}>
-        <a href={story.url} target="_blank" rel="noopener noreferrer">
-          {story.title}
-        </a>
-      </h1>
-      <div className={styles.storyMeta}>
-        <span>By: {story.by}</span>
-        <span>Posted: {mapTime(story.time)}</span>
+      <div className={styles.scores}>
+        <span>{story.score}</span>
+      </div>
+      <div className={styles.texts}>
+        <h1 className={styles.storyTitle}>
+          <a href={story.url} target="_blank" rel="noopener noreferrer">
+            {story.title}
+          </a>
+        </h1>
+        <div className={styles.storyMeta}>
+          <span>By: {story.by}</span>
+          <span>Posted: {mapTime(story.time)}</span>
+        </div>
       </div>
     </section>
   ) : null;
