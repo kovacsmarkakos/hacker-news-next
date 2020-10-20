@@ -3,14 +3,15 @@ import Head from 'next/head';
 import axios from 'axios';
 import { Story } from '../components/Story';
 import { topStoriesUrl } from '../services/api.js';
-import styles from '../styles/pagestyles.module.scss';
+import styles from '../styles/headerstyles.module.scss';
 import Pagination from '../components/Pagination';
 import Nav from '../components/Nav';
 
-export default function Home({ result }) {
+export default function Top({ result }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [storiesPerPage, setStoriesPerPage] = useState(20);
 
+  // Get current posts
   const indexOfLastStory = currentPage * storiesPerPage;
   const indexOfFirstStory = indexOfLastStory - storiesPerPage;
 
@@ -19,7 +20,7 @@ export default function Home({ result }) {
       <Head>
         <title>Hacker News Next | Top</title>
       </Head>
-      <main className={styles.storiesContainerWrapper}>
+      <header className={styles.header}>
         <Nav />
         <Pagination
           storiesPerPage={storiesPerPage}
@@ -27,10 +28,10 @@ export default function Home({ result }) {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
-        {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
-          <Story key={id} storyId={id} />
-        ))}
-      </main>
+      </header>
+      {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
+        <Story key={id} storyId={id} />
+      ))}
     </>
   );
 }

@@ -3,7 +3,7 @@ import Head from 'next/head';
 import axios from 'axios';
 import { Story } from '../components/Story';
 import { showStoriesUrl } from '../services/api.js';
-import styles from '../styles/pagestyles.module.scss';
+import styles from '../styles/headerstyles.module.scss';
 import Pagination from '../components/Pagination';
 import Nav from '../components/Nav';
 
@@ -20,7 +20,7 @@ export default function Show({ result }) {
       <Head>
         <title>Hacker News Next | Show</title>
       </Head>
-      <main className={styles.storiesContainerWrapper}>
+      <header className={styles.header}>
         <Nav />
         <Pagination
           storiesPerPage={storiesPerPage}
@@ -28,10 +28,10 @@ export default function Show({ result }) {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
-        {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
-          <Story key={id} storyId={id} />
-        ))}
-      </main>
+      </header>
+      {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
+        <Story key={id} storyId={id} />
+      ))}
     </>
   );
 }

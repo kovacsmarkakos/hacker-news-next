@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getStory } from '../services/api';
 import styles from './Story.module.scss';
 import mapTime from '../mappers/mapTime';
+import { motion } from 'framer-motion';
 
 export const Story = ({ storyId }) => {
   const [story, setStory] = useState({});
@@ -16,8 +17,24 @@ export const Story = ({ storyId }) => {
     return () => (mounted = false);
   }, [storyId]);
 
+  const variants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  const variants2 = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   return story && story.url ? (
-    <section className={styles.storyWrapper}>
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={variants}
+      transition={{ duration: 0.5 }}
+      className={styles.storyWrapper}
+    >
       <div className={styles.scores}>
         <span>{story.score}</span>
       </div>
@@ -32,6 +49,6 @@ export const Story = ({ storyId }) => {
           <span>Posted: {mapTime(story.time)}</span>
         </div>
       </div>
-    </section>
+    </motion.section>
   ) : null;
 };
