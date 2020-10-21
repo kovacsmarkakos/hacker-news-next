@@ -36,7 +36,7 @@ export default function Top({ result }) {
         {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
           <motion.section
             exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             key={id}
             className={styles.section}
           >

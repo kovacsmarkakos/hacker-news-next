@@ -21,7 +21,7 @@ export const Story = ({ storyId, direction }) => {
     <motion.div
       initial={{ opacity: 0, x: direction === 'forward' ? 10 : -10 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.3, delay: 0.2 }}
+      transition={{ duration: 0.2, delay: 0.2 }}
       className={styles.storyWrapper}
     >
       <div className={styles.scores}>
