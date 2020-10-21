@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { getStory } from '../services/api';
 import styles from './Story.module.scss';
 import mapTime from '../mappers/mapTime';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
-export const Story = ({ storyId }) => {
+export const Story = ({ storyId, direction }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -15,24 +15,13 @@ export const Story = ({ storyId }) => {
       }
     });
     return () => (mounted = false);
-  }, [storyId]);
-
-  const variants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: { opacity: 1, x: 0 },
-  };
-
-  const variants2 = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
+  }, []);
 
   return story && story.url ? (
-    <motion.section
-      initial="hidden"
-      animate="visible"
-      variants={variants}
-      transition={{ duration: 0.5 }}
+    <motion.div
+      initial={{ opacity: 0, x: direction === 'forward' ? 10 : -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
       className={styles.storyWrapper}
     >
       <div className={styles.scores}>
@@ -49,6 +38,6 @@ export const Story = ({ storyId }) => {
           <span>Posted: {mapTime(story.time)}</span>
         </div>
       </div>
-    </motion.section>
+    </motion.div>
   ) : null;
 };

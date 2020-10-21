@@ -6,10 +6,12 @@ import { topStoriesUrl } from '../services/api.js';
 import styles from '../styles/headerstyles.module.scss';
 import Pagination from '../components/Pagination';
 import Nav from '../components/Nav';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Top({ result }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [storiesPerPage, setStoriesPerPage] = useState(20);
+  const [direction, setDirection] = useState('forward');
 
   // Get current posts
   const indexOfLastStory = currentPage * storiesPerPage;
@@ -27,11 +29,21 @@ export default function Top({ result }) {
           totalStories={result.length}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
+          setDirection={setDirection}
         />
       </header>
-      {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
-        <Story key={id} storyId={id} />
-      ))}
+      <AnimatePresence>
+        {result.slice(indexOfFirstStory, indexOfLastStory).map((id) => (
+          <motion.section
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.3 }}
+            key={id}
+            className={styles.section}
+          >
+            <Story key={id} storyId={id} direction={direction} />
+          </motion.section>
+        ))}
+      </AnimatePresence>
     </>
   );
 }

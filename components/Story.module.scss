@@ -9,9 +9,8 @@
   &:first-of-type {
     border-top: 0;
   }
-  &:last-of-type {
+  &:last-child {
     border-bottom: 1px solid #eee;
-    margin-bottom: 25px;
   }
 }
 

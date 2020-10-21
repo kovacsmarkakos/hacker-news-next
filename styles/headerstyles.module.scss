@@ -3,3 +3,9 @@
   max-width: 860px;
   margin: 25px auto;
 }
+
+.section {
+  &:last-child {
+    margin-bottom: 25px;
+  }
+}
