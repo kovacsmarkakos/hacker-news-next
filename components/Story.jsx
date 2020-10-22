@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { getStory } from '../services/api';
 import styles from './Story.module.scss';
 import mapTime from '../mappers/mapTime';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import axios from 'axios';
+import { storyUrl } from '../utilities/apiHelper';
+import { selectFields } from '../utilities/selectFields';
 
 export const Story = ({ storyId, direction }) => {
   const [story, setStory] = useState({});
+
+  const getStory = async (storyId) => {
+    const result = await axios
+      .get(`${storyUrl + storyId}.json`)
+      .then(({ data }) => data && selectFields(data));
+
+    return result;
+  };
 
   useEffect(() => {
     let mounted = true;
