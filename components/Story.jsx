@@ -20,7 +20,7 @@ export const Story = ({ storyId, direction }) => {
     }
 
     setIsLoading(true);
-    NProgress.start();
+    NProgress.set(0.3);
   }
 
   function stop() {
