@@ -5,16 +5,55 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 import { storyUrl } from '../utilities/apiHelper';
 import { selectFields } from '../utilities/selectFields';
+import NProgress from 'nprogress';
 
 export const Story = ({ storyId, direction }) => {
   const [story, setStory] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  let activeRequests = 0;
+  NProgress.configure({ showSpinner: false });
+
+  function load() {
+    if (isLoading) {
+      return;
+    }
+
+    setIsLoading(true);
+    NProgress.start();
+  }
+
+  function stop() {
+    if (activeRequests > 0) {
+      return;
+    }
+
+    setIsLoading(false);
+    NProgress.done();
+  }
 
   const getStory = async (storyId) => {
-    const result = await axios
-      .get(`${storyUrl + storyId}.json`)
-      .then(({ data }) => data && selectFields(data));
+    if (activeRequests === 0) {
+      load();
+    }
 
-    return result;
+    activeRequests++;
+
+    try {
+      const result = await axios
+        .get(`${storyUrl + storyId}.json`)
+        .then(({ data }) => data && selectFields(data));
+
+      return result;
+    } catch (error) {
+      setIsLoading(false);
+      console.error(error);
+    } finally {
+      activeRequests -= 1;
+      if (activeRequests === 0) {
+        stop();
+      }
+    }
   };
 
   useEffect(() => {
