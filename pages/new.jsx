@@ -23,7 +23,7 @@ export default function New({ result }) {
         <title>Hacker News Next | New</title>
       </Head>
       <header className={styles.header}>
-        <Nav />
+        <Nav setCurrentPage={setCurrentPage} />
         <Pagination
           storiesPerPage={storiesPerPage}
           totalStories={result.length}

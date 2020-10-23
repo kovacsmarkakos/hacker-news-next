@@ -1,21 +1,21 @@
 import Link from 'next/link';
 import styles from './Nav.module.scss';
 
-const Nav = () => {
+const Nav = ({ setCurrentPage }) => {
   return (
     <nav className={styles.nav}>
       <div className={styles.linkWrapper}>
         <Link href="/top">
-          <a>HNN</a>
+          <a onClick={() => setCurrentPage(1)}>HNN</a>
         </Link>
         <Link href="/top">
-          <a>Top</a>
+          <a onClick={() => setCurrentPage(1)}>Top</a>
         </Link>
         <Link href="/new">
-          <a>New</a>
+          <a onClick={() => setCurrentPage(1)}>New</a>
         </Link>
         <Link href="/show">
-          <a>Show</a>
+          <a onClick={() => setCurrentPage(1)}>Show</a>
         </Link>
       </div>
     </nav>
