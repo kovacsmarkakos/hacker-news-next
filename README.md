@@ -12,6 +12,7 @@
 
 - Next.js
 - Sass
+- Animations with Framer Motion
 - Deployed on Vercel
 
 ### ✨ [Demo](https://hacker-news-next-js.vercel.app)
