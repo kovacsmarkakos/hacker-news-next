@@ -83,8 +83,13 @@ export const Story = ({ storyId, direction }) => {
           </a>
         </h1>
         <div className={styles.storyMeta}>
-          <span>By: {story.by}</span>
-          <span>Posted: {mapTime(story.time)}</span>
+          <span>by: {story.by}</span>
+          <span>posted: {mapTime(story.time)}</span>
+          <span>
+            <span className={styles.comments}>
+              {story.descendants ? story.descendants : 0} comments
+            </span>
+          </span>
         </div>
       </div>
     </motion.div>

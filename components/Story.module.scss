@@ -42,6 +42,14 @@
   }
 }
 
+.comments {
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover {
+    color: #0f4481;
+  }
+}
+
 .texts {
   flex: 8;
 }
