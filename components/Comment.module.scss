@@ -1,0 +1,24 @@
+.comment-children {
+  margin-left: 1.5em;
+}
+.comment {
+  border-top: 1px solid #eee;
+  position: relative;
+}
+
+.by .text {
+  font-size: 0.9em;
+  margin: 1em 0;
+}
+
+.by {
+  color: #828282;
+  a {
+    color: #828282;
+    text-decoration: underline;
+  }
+}
+
+.text {
+  overflow-wrap: break-word;
+}
