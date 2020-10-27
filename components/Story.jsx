@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import styles from './Story.module.scss';
 import mapTime from '../mappers/mapTime';
 import { motion } from 'framer-motion';
@@ -86,9 +87,13 @@ export const Story = ({ storyId, direction }) => {
           <span>by: {story.by}</span>
           <span>posted: {mapTime(story.time)}</span>
           <span>
-            <span className={styles.comments}>
-              {story.descendants ? story.descendants : 0} comments
-            </span>
+            <Link href={`/item/${story.id}`}>
+              <a>
+                <span className={styles.comments}>
+                  {story.descendants ? story.descendants : 0} comments
+                </span>
+              </a>
+            </Link>
           </span>
         </div>
       </div>
