@@ -4,6 +4,7 @@ import axios from 'axios';
 import styles from '../../styles/headerstyles.module.scss';
 import Nav from '../../components/Nav';
 import { storyUrl } from '../../utilities/apiHelper';
+import { Comments } from '../../components/Comments';
 
 const getItem = async (id) => {
   try {
@@ -22,9 +23,10 @@ export default function Item({ itemData }) {
       <Head>
         <title>Hacker News Next | {itemData.title}</title>
       </Head>
-      <header className={styles.header}>
+      <header className={styles.commentsHeader}>
         <Nav />
       </header>
+      <Comments itemData={itemData} />
     </>
   );
 }

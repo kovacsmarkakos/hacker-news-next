@@ -85,7 +85,7 @@ export const Story = ({ storyId, direction }) => {
         </h1>
         <div className={styles.storyMeta}>
           <span>by: {story.by}</span>
-          <span>posted: {mapTime(story.time)}</span>
+          <span>{mapTime(story.time)} ago</span>
           <span>
             <Link href={`/item/${story.id}`}>
               <a>
