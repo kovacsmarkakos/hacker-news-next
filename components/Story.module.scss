@@ -1,7 +1,7 @@
 .storyWrapper {
   display: flex;
   align-items: center;
-  padding: 20px 30px 20px 0px;
+  padding: 15px 25px 15px 0px;
   border-top: 1px solid #eee;
   background-color: #fff;
   max-width: 860px;
@@ -20,7 +20,7 @@
   }
   color: #2d4055;
   margin-bottom: 5px;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.8;
   margin: 0;
   text-decoration: none;
@@ -32,9 +32,6 @@
   color: #3d3d3d;
   width: fit-content;
   padding: 0.3rem 0.3rem 0.3rem 0;
-  span:first-child {
-    margin-right: 2px;
-  }
   span:not(:first-child):before {
     font-style: normal;
     content: '•';
@@ -45,6 +42,7 @@
 .comments {
   text-decoration: underline;
   cursor: pointer;
+  white-space: nowrap;
   &:hover {
     color: #0f4481;
   }
@@ -57,7 +55,7 @@
 .scores {
   display: flex;
   flex: 1;
-  padding: 1.8rem;
+  padding: 1.6rem;
   justify-content: center;
   align-items: center;
   span {
