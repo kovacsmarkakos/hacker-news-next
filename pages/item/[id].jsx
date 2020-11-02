@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import styles from '../../styles/headerstyles.module.scss';
