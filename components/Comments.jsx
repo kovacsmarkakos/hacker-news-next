@@ -1,27 +1,40 @@
+import React, { useState, useEffect } from 'react';
 import styles from '../components/Comments.module.scss';
 import mapTime from '../mappers/mapTime';
+import { storyUrl } from '../utilities/apiHelper';
+import axios from 'axios';
 
-export const Comments = ({ itemData }) => {
+const Comments = ({ commentId }) => {
+  const [comment, setComment] = useState({});
+
+  const getComment = async (commentId) => {
+    try {
+      const result = await axios
+        .get(`${storyUrl + commentId}.json`)
+        .then(({ data }) => data);
+      return result;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getComment(commentId).then((data) => {
+      setComment(data);
+    });
+  }, []);
+
   return (
-    <div className={styles.container}>
-      <div className={styles.commentsHeader}>
-        <a href={itemData.url} target="_blank">
-          <h1>{itemData.title}</h1>
-        </a>
-        <p className={styles.meta}>
-          {itemData.score} points | by {itemData.by} {mapTime(itemData.time)}{' '}
-          ago
-        </p>
+    <li className={styles.comment}>
+      <div className={styles.by}>
+        <span>{comment.by}</span>
       </div>
-      <div className={styles.commentsView}>
-        <li className={styles.comment}>
-          <div className={styles.by}></div>
-          <div className={styles.text}>Work in progress...</div>
-          <ul className={styles.commentChildren}>
-            <p></p>
-          </ul>
-        </li>
-      </div>
-    </div>
+      <div
+        className={styles.text}
+        dangerouslySetInnerHTML={{ __html: comment.text }}
+      ></div>
+    </li>
   );
 };
+
+export default Comments;
