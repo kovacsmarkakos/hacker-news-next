@@ -25,15 +25,17 @@ const Comments = ({ commentId }) => {
   }, []);
 
   return (
-    <li className={styles.comment}>
+    <>
       <div className={styles.by}>
-        <span>{comment.by}</span>
+        <span>
+          {comment.by} {mapTime(comment.time)} ago
+        </span>
       </div>
       <div
         className={styles.text}
         dangerouslySetInnerHTML={{ __html: comment.text }}
       ></div>
-    </li>
+    </>
   );
 };
 
