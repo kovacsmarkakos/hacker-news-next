@@ -19,32 +19,33 @@ const getItem = async (id) => {
 
 export default function Item({ itemData }) {
   return (
-    <>
+    <div className={styles.itemContainer}>
       <Head>
         <title>Hacker News Next | {itemData.title}</title>
       </Head>
       <header className={styles.itemHeader}>
         <Nav />
       </header>
-      <div className={styles.container}>
-        <div className={styles.commentsHeader}>
-          <a href={itemData.url} target="_blank">
-            <h1>{itemData.title}</h1>
-          </a>
-          <p className={styles.meta}>
-            {itemData.score} points | by {itemData.by} {mapTime(itemData.time)}{' '}
-            ago
-          </p>
-        </div>
+      <div className={styles.viewHeader}>
+        <a href={itemData.url} target="_blank">
+          <h1>{itemData.title}</h1>
+        </a>
+        <p className={styles.meta}>
+          {itemData.score} points | by {itemData.by} {mapTime(itemData.time)}{' '}
+          ago
+        </p>
       </div>
-      <ul className={styles.commentChildren}>
-        {itemData.kids.map((id) => (
-          <li className={styles.comment} key={id}>
-            <Comments commentId={id} />
-          </li>
-        ))}
-      </ul>
-    </>
+      <div className={styles.comments}>
+        <p className={styles.commentsHeader}>{itemData.descendants} comments</p>
+        <ul className={styles.commentChildren}>
+          {itemData.kids.map((id) => (
+            <li className={styles.comment} key={id}>
+              <Comments commentId={id} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
 
