@@ -14,17 +14,8 @@
   overflow-wrap: break-word;
 }
 
-// copied from itemStyles
 .commentChildren {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.comment-children {
-  .comment-children {
-    margin-left: 1.5em;
-  }
+  margin-left: 1rem;
 }
 
 .comment {

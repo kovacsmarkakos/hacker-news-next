@@ -20,3 +20,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+ul {
+  padding-inline-start: 0px;
+}

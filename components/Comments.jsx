@@ -38,6 +38,11 @@ const Comments = ({ commentId }) => {
           className={styles.text}
           dangerouslySetInnerHTML={{ __html: comment.text }}
         ></div>
+        <ul className={styles.commentChildren}>
+          {comment.kids
+            ? comment.kids.map((id) => <Comments commentId={id} key={id} />)
+            : null}
+        </ul>
       </li>
     )
   );
