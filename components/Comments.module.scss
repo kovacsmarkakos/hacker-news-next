@@ -13,3 +13,22 @@
   margin: 1em 0;
   overflow-wrap: break-word;
 }
+
+// copied from itemStyles
+.commentChildren {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-children {
+  .comment-children {
+    margin-left: 1.5em;
+  }
+}
+
+.comment {
+  border-top: 1px solid #eee;
+  position: relative;
+  list-style: none;
+}

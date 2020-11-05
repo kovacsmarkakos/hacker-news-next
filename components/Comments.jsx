@@ -28,7 +28,7 @@ const Comments = ({ commentId }) => {
 
   return (
     loading || (
-      <>
+      <li className={styles.comment}>
         <div className={styles.by}>
           <span>
             {comment.by} {mapTime(comment.time)} ago
@@ -38,7 +38,7 @@ const Comments = ({ commentId }) => {
           className={styles.text}
           dangerouslySetInnerHTML={{ __html: comment.text }}
         ></div>
-      </>
+      </li>
     )
   );
 };

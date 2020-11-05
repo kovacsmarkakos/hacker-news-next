@@ -39,9 +39,7 @@ export default function Item({ itemData }) {
         <p className={styles.commentsHeader}>{itemData.descendants} comments</p>
         <ul className={styles.commentChildren}>
           {itemData.kids.map((id) => (
-            <li className={styles.comment} key={id}>
-              <Comments commentId={id} />
-            </li>
+            <Comments commentId={id} key={id} />
           ))}
         </ul>
       </div>

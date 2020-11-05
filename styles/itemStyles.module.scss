@@ -43,6 +43,12 @@
   margin: 0;
 }
 
+.comment-children {
+  .comment-children {
+    margin-left: 1.5em;
+  }
+}
+
 .comment {
   border-top: 1px solid #eee;
   position: relative;
