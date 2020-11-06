@@ -30,13 +30,13 @@ export default function Item({ itemData }) {
         <a href={itemData.url} target="_blank">
           <h1>{itemData.title}</h1>
         </a>
-        <p className={styles.meta}>
+        <p>
           {itemData.score} points | by {itemData.by} {mapTime(itemData.time)}{' '}
           ago
         </p>
       </div>
       <div className={styles.comments}>
-        <p className={styles.commentsHeader}>
+        <p>
           {itemData.kids
             ? itemData.descendants + ' comments'
             : 'No comments yet.'}
