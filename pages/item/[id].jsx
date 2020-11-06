@@ -36,7 +36,7 @@ export default function Item({ itemData }) {
         </p>
       </div>
       <div className={styles.comments}>
-        <p>
+        <p className={styles.meta}>
           {itemData.kids
             ? itemData.descendants + ' comments'
             : 'No comments yet.'}
