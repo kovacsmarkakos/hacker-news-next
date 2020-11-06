@@ -28,14 +28,14 @@
 }
 
 .storyMeta {
-  font-size: 13px;
-  color: #3d3d3d;
+  font-size: 0.8em;
+  color: #696969;
   width: fit-content;
   padding: 0.3rem 0.3rem 0.3rem 0;
   span:not(:first-child):before {
     font-style: normal;
-    content: '•';
-    margin: 0 7px;
+    content: '|';
+    margin: 0 4px;
   }
 }
 
@@ -55,7 +55,7 @@
 .scores {
   display: flex;
   flex: 1;
-  padding: 1.6rem;
+  padding: 1.5rem;
   justify-content: center;
   align-items: center;
   span {
