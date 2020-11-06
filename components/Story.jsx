@@ -58,13 +58,9 @@ export const Story = ({ storyId, direction }) => {
   };
 
   useEffect(() => {
-    let mounted = true;
     getStory(storyId).then((data) => {
-      if (mounted) {
-        data && data.url && setStory(data);
-      }
+      data && data.url && setStory(data);
     });
-    return () => (mounted = false);
   }, []);
 
   return story && story.url ? (
