@@ -1,5 +1,5 @@
 .by {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   margin: 1em 0;
   color: #828282;
   a {
@@ -9,9 +9,13 @@
 }
 
 .text {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   margin: 1em 0;
   overflow-wrap: break-word;
+
+  pre {
+    white-space: pre-wrap;
+  }
 }
 
 .commentChildren {
