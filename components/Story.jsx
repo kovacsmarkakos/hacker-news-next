@@ -65,10 +65,10 @@ export const Story = ({ storyId, direction }) => {
 
   return story && story.url ? (
     <motion.div
+      className={styles.storyWrapper}
       initial={{ opacity: 0, x: direction === 'forward' ? 10 : -10 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.2, delay: 0.2 }}
-      className={styles.storyWrapper}
     >
       <div className={styles.scores}>
         <span>{story.score}</span>

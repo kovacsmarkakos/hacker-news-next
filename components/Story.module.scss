@@ -1,16 +1,27 @@
 .storyWrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 90px 1fr;
   align-items: center;
-  padding: 15px 25px 15px 0px;
-  border-top: 1px solid #eee;
-  background-color: #fff;
   max-width: 800px;
   margin: 0 auto;
+  padding: 20px 25px 20px 0px;
+  border-top: 1px solid #eee;
+  background-color: #fff;
   &:first-of-type {
     border-top: 0;
   }
   &:last-child {
     border-bottom: 1px solid #eee;
+  }
+}
+
+.scores {
+  place-self: center;
+  span {
+    color: #3d3d3d;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
   }
 }
 
@@ -45,23 +56,5 @@
   white-space: nowrap;
   &:hover {
     color: #0f4481;
-  }
-}
-
-.texts {
-  flex: 8;
-}
-
-.scores {
-  display: flex;
-  flex: 1;
-  padding: 1.5rem;
-  justify-content: center;
-  align-items: center;
-  span {
-    color: #3d3d3d;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-align: center;
   }
 }
