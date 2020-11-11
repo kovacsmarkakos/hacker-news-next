@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import { Story } from '../components/Story';
-import { newStoriesUrl } from '../utilities/apiHelper.js';
+import { apiHelper } from '../utilities/apiHelper.js';
 import styles from '../styles/headerstyles.module.scss';
 import Pagination from '../components/Pagination';
 import Nav from '../components/Nav';
@@ -48,8 +48,10 @@ export default function New({ result }) {
   );
 }
 
-export async function getServerSideProps() {
-  const result = await axios.get(newStoriesUrl).then(({ data }) => data);
+export async function getServerSideProps(context) {
+  const pathname = context.resolvedUrl;
+
+  const result = await axios.get(apiHelper(pathname)).then(({ data }) => data);
 
   return {
     props: {

@@ -1,5 +1,14 @@
 export const baseUrl = 'https://hacker-news.firebaseio.com/v0/';
 export const storyUrl = `${baseUrl}item/`;
-export const newStoriesUrl = `${baseUrl}newstories.json`;
-export const topStoriesUrl = `${baseUrl}topstories.json`;
-export const showStoriesUrl = `${baseUrl}showstories.json`;
+
+export const apiHelper = (page) => {
+  if (page === '/top') {
+    return `${baseUrl}topstories.json`;
+  }
+  if (page === '/new') {
+    return `${baseUrl}newstories.json`;
+  }
+  if (page === '/show') {
+    return `${baseUrl}showstories.json`;
+  }
+};

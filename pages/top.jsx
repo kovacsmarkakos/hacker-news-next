@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import { Story } from '../components/Story';
-import { topStoriesUrl } from '../utilities/apiHelper.js';
+import { apiHelper } from '../utilities/apiHelper.js';
 import styles from '../styles/headerstyles.module.scss';
 import Pagination from '../components/Pagination';
 import Nav from '../components/Nav';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Top({ result }) {
+export default function Top({ result, context }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [storiesPerPage, setStoriesPerPage] = useState(20);
   const [direction, setDirection] = useState('forward');
@@ -48,8 +48,10 @@ export default function Top({ result }) {
   );
 }
 
-export async function getServerSideProps() {
-  const result = await axios.get(topStoriesUrl).then(({ data }) => data);
+export async function getServerSideProps(context) {
+  const pathname = context.resolvedUrl;
+
+  const result = await axios.get(apiHelper(pathname)).then(({ data }) => data);
 
   return {
     props: {
