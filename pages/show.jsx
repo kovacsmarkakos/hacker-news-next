@@ -50,7 +50,7 @@ export default function Items({ result, pageDetails }) {
 }
 
 export async function getServerSideProps(context) {
-  const pathname = context.resolvedUrl;
+  const pathname = context.resolvedUrl === '/' ? '/top' : context.resolvedUrl;
   const pageDetails = getPageDetails(pathname);
 
   const result = await axios.get(apiHelper(pathname)).then(({ data }) => data);
