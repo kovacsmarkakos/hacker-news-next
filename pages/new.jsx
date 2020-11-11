@@ -7,8 +7,9 @@ import styles from '../styles/headerstyles.module.scss';
 import Pagination from '../components/Pagination';
 import Nav from '../components/Nav';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getPageDetails } from '../utilities/pageHelper';
 
-export default function New({ result }) {
+export default function Items({ result, pageDetails }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [storiesPerPage, setStoriesPerPage] = useState(20);
   const [direction, setDirection] = useState('forward');
@@ -20,7 +21,7 @@ export default function New({ result }) {
   return (
     <>
       <Head>
-        <title>Hacker News Next | New</title>
+        <title>{pageDetails}</title>
       </Head>
       <header className={styles.header}>
         <Nav setCurrentPage={setCurrentPage} />
@@ -50,12 +51,13 @@ export default function New({ result }) {
 
 export async function getServerSideProps(context) {
   const pathname = context.resolvedUrl;
+  const pageDetails = getPageDetails(pathname);
 
   const result = await axios.get(apiHelper(pathname)).then(({ data }) => data);
-
   return {
     props: {
       result,
+      pageDetails,
     },
   };
 }
