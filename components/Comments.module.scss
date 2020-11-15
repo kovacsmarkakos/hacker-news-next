@@ -1,6 +1,6 @@
 .by {
   font-size: 0.9rem;
-  margin: 1em 0;
+  margin-bottom: 0.5rem;
   color: #747474;
   a {
     color: #747474;
@@ -10,7 +10,7 @@
 
 .text {
   font-size: 0.9rem;
-  margin: 1em 0;
+  margin-bottom: 1.5rem;
   overflow-wrap: break-word;
 
   pre {
@@ -19,11 +19,10 @@
 }
 
 .commentChildren {
-  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #eee;
 }
 
 .comment {
-  border-top: 1px solid #eee;
-  position: relative;
   list-style: none;
 }
